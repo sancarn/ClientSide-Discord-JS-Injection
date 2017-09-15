@@ -1,18 +1,13 @@
 function deleteMessages(count){
     var i=0;
     var interval = setInterval(function($){
-        try {
-            if(i==count){
+            if(i++==count){
                 clearInterval(interval);
             } else {
                 deleteLatest($);
             }
-            i++;
-        } catch (e) {
-        }   
     }.bind(window,$),500)
 }
-
 
 function deleteLatest($){
     var message = Array.from(document.getElementsByClassName('message')).pop()
