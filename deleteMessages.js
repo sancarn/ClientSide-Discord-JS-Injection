@@ -1,4 +1,4 @@
-//Still not stable as of yet
+//Appears to be stable
 
 function getPropertyByRegex(o,r) {
   for (var key in o) {
