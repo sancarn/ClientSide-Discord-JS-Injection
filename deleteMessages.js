@@ -1,4 +1,15 @@
 //Still not stable as of yet
+
+Object.prototype.getPropertyByRegex = function(r) {
+  for (var key in this) {
+    if (key.match(r)) {
+      return this[key];
+    }
+  }
+  return undefined;
+};
+
+
 function deleteMessages(count){
     var i=0;
     var interval = setInterval(function($){
@@ -24,5 +35,5 @@ function deleteLatest($){
 
 function getLatestMsgID(){
     var msg = Array.from(document.getElementsByClassName('message')).pop()
-    return msg.__reactInternalInstance$vujmm9ix6eoaw6u98gkd6xbt9._domID
+    return msg.getPropertyByRegex(/__reactInternalInstance.+/)._domID
 }
