@@ -35,5 +35,5 @@ function deleteLatest($){
 
 function getLatestMsgID(){
     var msg = Array.from(document.getElementsByClassName('message')).pop()
-    return msg.getPropertyByRegex(/__reactInternalInstance.+/)._domID
+    return getPropertyByRegex(msg,/__reactInternalInstance.+/)._domID
 }
