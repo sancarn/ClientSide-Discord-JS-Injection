@@ -1,3 +1,4 @@
+//Still not stable as of yet
 function deleteMessages(count){
     var i=0;
     var interval = setInterval(function($){
