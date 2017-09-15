@@ -1,9 +1,9 @@
 //Still not stable as of yet
 
-Object.prototype.getPropertyByRegex = function(r) {
-  for (var key in this) {
+function getPropertyByRegex(o,r) {
+  for (var key in o) {
     if (key.match(r)) {
-      return this[key];
+      return o[key];
     }
   }
   return undefined;
