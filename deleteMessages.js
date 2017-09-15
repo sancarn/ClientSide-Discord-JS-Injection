@@ -1,6 +1,5 @@
 function deleteMessages(count){
     var messages = document.getElementsByClassName('message');
-    console.log("hello")
     for(var i=0; i<count;i++){
         message = messages[messages.length-1 - i]
         if(message.getElementsByClassName("btn-option").length){
