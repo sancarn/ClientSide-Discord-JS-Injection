@@ -1,4 +1,4 @@
-//Appears to be stable
+//It seems that the function sometimes will delete less messages than anticipated.
 
 function getPropertyByRegex(o,r) {
   for (var key in o) {
