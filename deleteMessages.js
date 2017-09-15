@@ -20,3 +20,11 @@ function deleteLatest($){
         document.documentElement.click()
     }
 }
+
+
+/*
+better solution would be to use:
+HTTPGet("https://discordapp.com/api/v6/channels/{channel-id}/messages?limit=50")
+and then from there use
+HTTPDelete("https://discordapp.com/api/v6/channels/{channel-id}/messages/{message-id}")
+*/
