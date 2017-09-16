@@ -46,3 +46,26 @@ oReq.send()
 Note oAuthToken is required to use this method. The authorization token can be found in Developer Tools > Application Tab > Token key. You can double click the icon and copy the path
 
 */
+
+function deleteMessages2(count,oAuthToken){
+    function reqListener(){
+        JSON.parse(this.responseText).forEach(delete.bind(oAuthToken))
+    }
+    function delete(message){
+        var url = `https://discordapp.com/api/v6/channels/${message.channel_id}/messages/${message.id}`
+        var oReq = new XMLHttpRequest();
+        oReq.open("DELETE",url)
+        oReq.setRequestHeader("authorization",oAuthToken)
+        oReq.send()
+    }
+    var oReq = new XMLHttpRequest();
+    var url = `https://discordapp.com/api/v6/channels/${/channels\/(\d+)\/(\d+)/.exec(window.location.pathname)[2]}/messages?limit=${count}`
+    oReq.addEventListener("load",reqListener);
+    oReq.open("GET",url)
+    oReq.setRequestHeader("authorization",oAuthToken)
+    oReq.send()
+}
+
+
+
+
