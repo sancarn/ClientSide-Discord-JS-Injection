@@ -48,6 +48,15 @@ DISCORD_SPY.observe($(".messages.scroller"), { attributes: false, childList: tru
    
    However this won't work because parentNode doesn't exist because the node was just deleted...
    
+   Better method:
+   Instantiate some class on all message nodes. Also whenever a node is added, instantiate the same class.
+   Observer can look through said classes to find exactly which node was removed.
+   observedNodes.forEach(function(el){
+      if(el=node && el.index != 0) DISCORD_SPY_HANDLE_DELETED(node)
+   })
+   
+   Alternatively (somehow) get message's ID and ask server whether that message still exists.
+   
    Changes:
    * Removed msgTime as it was pretty much meaningless --> "Today at ...", where as atTime is always accurate to the ticket!
  
