@@ -40,7 +40,12 @@ DISCORD_SPY = new MutationObserver(
 DISCORD_SPY.observe($(".messages.scroller"), { attributes: false, childList: true, subtree: true, characterData:true, characterDataOldValue: true })
 
 /* 
- 
+   Notes:
+   * Deleting doesn't really work that well... When a message scrolls out of range it is deleted from the document.
+   Probably should add a position check to the 'node removal' test. Something along the lines of: 
+   
+       if(Array.from(node.parentNode.children).indexOf(node) != 0) DISCORD_SPY_HANDLE_DELETED(mutation)
+   
    Changes:
    * Removed msgTime as it was pretty much meaningless --> "Today at ...", where as atTime is always accurate to the ticket!
  
