@@ -46,6 +46,8 @@ DISCORD_SPY.observe($(".messages.scroller"), { attributes: false, childList: tru
    
        if(Array.from(node.parentNode.children).indexOf(node) != 0) DISCORD_SPY_HANDLE_DELETED(mutation)
    
+   However this won't work because parentNode doesn't exist because the node was just deleted...
+   
    Changes:
    * Removed msgTime as it was pretty much meaningless --> "Today at ...", where as atTime is always accurate to the ticket!
  
